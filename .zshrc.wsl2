@@ -1,0 +1,112 @@
+# Lines configured by zsh-newuser-install
+
+# history
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+function history-all { history -E 1 }
+setopt share_history extended_history
+setopt hist_ignore_all_dups hist_ignore_dups hist_ignore_space 
+setopt hist_reduce_blanks
+
+#tcsh like...
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+#bindkey "OA" history-beginning-search-backward-end
+#bindkey "OB" history-beginning-search-forward-end
+bindkey "[A" history-beginning-search-backward-end
+bindkey "[B" history-beginning-search-forward-end
+
+# emacs key bind
+bindkey -e
+# ctrl+ ©,¨ ... word jump
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
+
+# zsh‚Ìdefaultİ’è‚È‚Ì‚Å–¾¦İ’è•s—v‚¾‚Á‚½‚à‚Ì
+#   ƒ^ƒuƒL[˜A‘±‰Ÿ‰º‚Åƒƒjƒ…[•âŠ®
+#   setopt auto_menu
+#   •âŠ®‚ª/‚ÅI‚í‚Á‚½‚Æ‚«‚ÉAŸ‚É“ü—Í‚·‚é•¶š‚ª’PŒê‹æØ‚è•¶šAƒXƒ‰ƒbƒVƒ…A
+#   ‚Ü‚½‚ÍƒRƒ}ƒ“ƒh‚ğI—¹‚·‚é•¶šiƒZƒ~ƒRƒƒ“‚âƒAƒ“ƒpƒTƒ“ƒh‚È‚Çj‚Ìê‡‚ÍA•âŠ®––”ö‚Ì/‚ğœ‹
+#   unsetopt auto_remove_slash
+#   •âŠ®‘ÎÛ‚Ìƒtƒ@ƒCƒ‹––”ö‚É¯•Êƒ}[ƒN‚ğ•t—^
+#   setopt list_types 
+#   ©“®•âŠ®‚µ‚½ƒJƒ“ƒ}‚È‚Ç‚ªŸè‚Éíœ‚³‚ê‚È‚¢‚æ‚¤‚É‚·‚éi–¢Šm’èó‘Ô‚É‚µ‚È‚¢j
+#   setopt auto_param_keys
+
+# ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ìˆø”‚Å --prefix=/usr ‚È‚Ç‚Ì = ˆÈ~‚Å‚à•âŠ®
+setopt magic_equal_subst
+
+# ’PŒê‚Ìˆê•”‚Æ‚İ‚È‚·‹L†(/‚ÍœŠO)
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+#autoload -U colors; colors
+autoload -Uz compinit
+compinit
+
+# selectable menu
+zstyle ':completion:*:default' menu select true
+
+# predict mode
+autoload -U predict-on
+zle -N predict-on
+zle -N predict-off
+# C-x,p‚Å©“®•âŠÔƒ‚[ƒh”­“®
+bindkey '^xp' predict-on
+# C-x,C-p‚Å©“®•âŠÔƒ‚[ƒh’†~
+bindkey '^x^p' predict-off
+
+# ƒRƒ}ƒ“ƒh‚Æˆø”(_all)‚ÌƒXƒyƒ‹‚ª‚¨‚©‚µ‚©‚Á‚½‚ç’ù³‚ğ‚İ‚é
+setopt correct correct_all
+
+# ƒfƒBƒŒƒNƒgƒŠ–¼‚¾‚¯‚ÅƒfƒBƒŒƒNƒgƒŠ‚ÌˆÚ“®‚ğ‚·‚é
+setopt auto_cd
+# cdƒRƒ}ƒ“ƒh‚Ådirectory stack‚É©“®“o˜^B‚Å‚à“¯‚¶ƒfƒBƒŒƒNƒgƒŠ‚Í“ü‚ê‚È‚¢
+setopt auto_pushd pushd_ignore_dups
+
+# etc...
+setopt no_beep extendedglob nomatch notify
+
+# alias
+alias ls="ls --color=auto -F"
+
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/lyo/.zshrc'
+
+# End of lines added by compinstall
+
+# use brew
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}â–“â–’â–E%F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})â€¦%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}â–“â–’â–E%F{34}Installation successful.%f%b" || \
+        print -P "%F{160}â–“â–’â–EThe clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+#other plugin load
+zinit ice wait'!0'; zinit load zsh-users/zsh-syntax-highlighting
+zinit ice wait'!0'; zinit load zsh-users/zsh-completions
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+### End of Zinit's installer chunk
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
