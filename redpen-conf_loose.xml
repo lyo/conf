@@ -1,0 +1,135 @@
+<redpen-conf lang="ja" variant="zenkaku">
+	<validators>
+		<validator name="SectionLevel">
+			<property name="max_num" value="6"/>
+		</validator>
+		<validator name="EmptySection"/>
+		<validator name="KatakanaSpellCheck">
+			<property name="min_ratio" value="0.3"/>
+			<property name="disable-default" value="false"/>
+			<property name="dict" value=""/>
+			<property name="max_ignore_len" value="3"/>
+			<property name="min_freq" value="5"/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="ParagraphNumber">
+			<property name="max_num" value="5"/>
+		</validator>
+		<validator name="ParagraphStartWith">
+			<property name="start_from" value=""/>
+		</validator>
+		<validator name="SentenceLength">
+			<property name="max_len" value="120"/>
+		</validator>
+		<validator name="WordNumber">
+			<property name="max_num" value="30"/>
+		</validator>
+		<validator name="Okurigana"/>
+		<validator name="WordFrequency">
+			<property name="deviation_factor" value="3.0"/>
+			<property name="min_word_count" value="200"/>
+		</validator>
+		<validator name="DoubledWord">
+			<property name="min_len" value="3"/>
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="HankakuKana"/>
+		<validator name="ListLevel">
+			<property name="max_level" value="5"/>
+		</validator>
+		<validator name="ParenthesizedSentence">
+			<property name="max_count" value="1"/>
+			<property name="max_nesting_level" value="1"/>
+			<property name="max_length" value="10"/>
+		</validator>
+		<validator name="JapaneseBrokenExpression"/>
+		<validator name="WeakExpression"/>
+		<validator name="JapaneseAmbiguousNounConjunction">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="SectionLength">
+			<property name="max_num" value="1000"/>
+		</validator>
+		<validator name="JavaScript">
+			<property name="script-path" value="js"/>
+		</validator>
+		<validator name="DuplicatedSection">
+			<property name="threshold" value="0.9"/>
+		</validator>
+		<validator name="JapaneseJoyoKanji"/>
+		<validator name="SymbolWithSpace"/>
+		<validator name="InvalidExpression">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="JapaneseAnchorExpression">
+			<property name="mode" value="numeric"/>
+		</validator>
+		<validator name="DoubledJoshi">
+			<property name="min_interval" value="1"/>
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="JapaneseNumberExpression">
+			<property name="mode" value="numeric"/>
+		</validator>
+		<validator name="HeaderLength">
+			<property name="min_level" value="3"/>
+			<property name="max_len" value="70"/>
+		</validator>
+		<validator name="JapaneseExpressionVariation">
+			<property name="dict" value=""/>
+			<property name="map" value="{}"/>
+		</validator>
+		<validator name="Spelling">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="DoubledConjunctiveParticleGa"/>
+		<validator name="KatakanaEndHyphen">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="Hyphenation">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+		</validator>
+		<validator name="CommaNumber">
+			<property name="max_num" value="3"/>
+		</validator>
+		<validator name="LongKanjiChain">
+			<property name="dict" value=""/>
+			<property name="list" value=""/>
+			<property name="max_len" value="5"/>
+		</validator>
+		<validator name="SuccessiveWord"/>
+		<validator name="FrequentSentenceStart">
+			<property name="leading_word_limit" value="3"/>
+			<property name="min_sentence_count" value="5"/>
+			<property name="percentage_threshold" value="25"/>
+		</validator>
+		<validator name="SuggestExpression">
+			<property name="dict" value=""/>
+			<property name="map" value="{}"/>
+		</validator>
+		<validator name="KeyValueDictionary">
+			<property name="dict" value=""/>
+			<property name="map" value="{}"/>
+		</validator>
+		<validator name="DoubleNegative"/>
+		<validator name="SuccessiveSentence">
+			<property name="min_len" value="5"/>
+			<property name="dist" value="3"/>
+		</validator>
+		<validator name="JapaneseStyle">
+			<property name="ForceDearu" value="false"/>
+		</validator>
+		<validator name="GappedSection"/>
+		<validator name="NumberFormat">
+			<property name="ignore_years" value="true"/>
+			<property name="decimal_delimiter_is_comma" value="false"/>
+		</validator>
+	</validators>
+</redpen-conf>
